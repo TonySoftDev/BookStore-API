@@ -4,7 +4,7 @@
 
 @inject IAuthorRepository _repo
 @inject NavigationManager _navManager
-@*@inject IToastService _toastService*@
+@inject IToastService _toastService
 
 <h3 class="card-title">Are You Sure You Want to Delete This Record?</h3>
 <hr />
@@ -95,7 +95,7 @@ else
         bool isSuccess = await _repo.Delete(Endpoints.AuthorsEndpoint, Model.Id);
         if (isSuccess)
         {
-            //_toastService.ShowError("Author Deleted Successfully", "");
+            _toastService.ShowError("Author Deleted Successfully", "");
             BackToList();
         }
         else
